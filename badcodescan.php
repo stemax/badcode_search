@@ -95,8 +95,7 @@ class BadCodeScan {
                 echo '</tr>';
             }
         echo '</table>';
-        echo 'Found:'.($this->getCountOfInjectedFiles()).' file(s).';
-        echo 'Status: finished';
+        echo '<h5>Found:'.($this->getCountOfInjectedFiles()).' file(s).</h5>';
     }
 
 }
