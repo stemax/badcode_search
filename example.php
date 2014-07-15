@@ -1,16 +1,16 @@
 <?php
+require_once('badcodescan.php');            //  include class
 
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+$ex_code_scan = new BadCodeScan;            // create new object of BadCodeScan class
 
-require_once('badcodescan.php');
+#Sample #1
+$ex_code_scan->searchBadCode();             // search bad code by default mask and parameters ($path = '.', $mask = 'eval(base64_decode', $ext = '*.php')
+$ex_code_scan->showResultTable();           // show result table (optional)
 
-$ex_code_scan = new BadCodeScan;
-$ex_code_scan->searchBadCode( '.',  'eval(base64_decode',  '*.*' );
-$ex_code_scan->showResultTable();
+#Sample #2
+$ex_code_scan->searchBadCode( '.',  'system(',  '*.txt' );  // search bad code by custom mask and parameters.
+$ex_code_scan->showResultTable();           // show result table (optional)
 
-$ex_code_scan->searchBadCode( '.',  'eval(gzinflate',  '*.*' );
-$ex_code_scan->showResultTable();
 
 ?>
 <?
